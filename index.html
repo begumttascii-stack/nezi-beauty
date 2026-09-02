@@ -43,12 +43,7 @@ rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-
 <style>
-
-/* ==================================================
-   GENEL
-================================================== */
 
 :root {
     --rose: #c9a0a0;
@@ -602,12 +597,6 @@ section {
         justify-self: center;
     }
 
-
-    /* ==================================================
-       KUAFÖRLÜK VE SAÇ KAYNAKLAMA
-       DİĞER KÜÇÜK KARTLAR GİBİ
-    ================================================== */
-
     .services-grid.double-service {
         grid-template-columns: 220px 220px;
         justify-content: center;
@@ -1014,17 +1003,17 @@ footer a {
 
     /* ==================================================
        MOBİL ANA SAYFA
-       YAZI SOLDA - RESİM SAĞDA
+       DAHA UZUN VE FERAH
     ================================================== */
 
     .hero {
 
-        min-height: auto;
+        min-height: 620px;
         height: auto;
 
         display: flex;
 
-        padding: 90px 12px 35px;
+        padding: 100px 12px 50px;
 
         background-image: none;
 
@@ -1096,7 +1085,7 @@ footer a {
 
     /* ==================================================
        MOBİL HERO GÖRSELİ
-       KADININ YÜZÜNÜN BULUNDUĞU SAĞ TARAF GÖRÜNÜR
+       FOTOĞRAF DAHA DA SAĞA KAYDIRILDI
     ================================================== */
 
     .hero-mobile-image {
@@ -1107,9 +1096,9 @@ footer a {
 
         flex: 1 1 50%;
 
-        height: auto;
+        height: 420px;
 
-        aspect-ratio: 1 / 1;
+        aspect-ratio: auto;
 
         margin: 0;
 
@@ -1129,8 +1118,11 @@ footer a {
 
         object-fit: cover;
 
-        /* SADECE BURASI DEĞİŞTİRİLDİ */
-        object-position: 70% center;
+        /*
+         * Fotoğrafı mobilde maksimum şekilde
+         * SAĞA kaydırıyoruz.
+         */
+        object-position: 100% center;
     }
 
 
@@ -1328,8 +1320,14 @@ footer a {
         padding: 8px 5px;
     }
 
+    /* ÇOK KÜÇÜK TELEFONDA DAHA UZUN GÖRSEL */
     .hero-mobile-image {
-        aspect-ratio: 1 / 1;
+        height: 360px;
+        aspect-ratio: auto;
+    }
+
+    .hero-mobile-image img {
+        object-position: 100% center;
     }
 
     .stat h4 {
@@ -1384,10 +1382,6 @@ footer a {
 
 <body>
 
-
-<!-- ==================================================
-     NAVBAR
-================================================== -->
 
 <nav id="navbar">
 
@@ -1460,10 +1454,6 @@ footer a {
 </nav>
 
 
-<!-- ==================================================
-     MOBİL MENÜ
-================================================== -->
-
 <div
     class="mobile-menu"
     id="mobileMenu"
@@ -1507,10 +1497,6 @@ footer a {
 
 </div>
 
-
-<!-- ==================================================
-     ANA SAYFA
-================================================== -->
 
 <section
     class="hero"
@@ -1570,10 +1556,6 @@ footer a {
 </section>
 
 
-<!-- ==================================================
-     HİZMETLER
-================================================== -->
-
 <section
     class="services"
     id="hizmetler"
@@ -1595,103 +1577,67 @@ footer a {
 
         <div class="service-tabs">
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('tirnak',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('tirnak',this)">
                 💅 Tırnak Hizmetleri
             </button>
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('masaj',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('masaj',this)">
                 💆‍♀️ Vücut & Masaj
             </button>
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('epilasyon',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('epilasyon',this)">
                 ✨ Epilasyon
             </button>
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('makyaj',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('makyaj',this)">
                 💄 Makyaj
             </button>
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('kuafor',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('kuafor',this)">
                 💇‍♀️ Saç
             </button>
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('el-ayak',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('el-ayak',this)">
                 💅 El & Ayak Bakımı
             </button>
 
-            <button
-                class="tab-btn"
-                type="button"
-                onclick="filterServices('kas-yuz',this)"
-            >
+            <button class="tab-btn" type="button"
+                onclick="filterServices('kas-yuz',this)">
                 👁️ Kaş & Yüz
             </button>
 
         </div>
 
 
-        <div
-            class="services-grid"
-            id="servicesGrid"
-        >
-
-
-            <!-- TIRNAK -->
+        <div class="services-grid" id="servicesGrid">
 
             <div class="service-card" data-category="tirnak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="akrilik-tirnak.webp"
+                    <img src="akrilik-tirnak.webp"
                         alt="Akrilik tırnak"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Akrilik Tırnak</h3>
-
                         <p>
                             Dayanıklı ve uzun ömürlü yapısıyla
                             ellerinize kusursuz görünüm kazandırır.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~90 Dk</span>
                         <span>Özel Tasarım</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1700,33 +1646,24 @@ footer a {
             <div class="service-card" data-category="tirnak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="protez-tirnak.webp"
+                    <img src="protez-tirnak.webp"
                         alt="Protez tırnak"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Protez Tırnak</h3>
-
                         <p>
                             Doğal tırnak yapınızı koruyarak
                             şık ve zarif tasarımlar sunar.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~75 Dk</span>
                         <span>Uzun Ömürlü</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1735,33 +1672,24 @@ footer a {
             <div class="service-card" data-category="tirnak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="jel-tirnak.webp"
+                    <img src="jel-tirnak.webp"
                         alt="Jel tırnak"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Jel Tırnak</h3>
-
                         <p>
                             Parlak, esnek ve doğal duruşuyla
                             ellerinizde göz alıcı şıklık yaratır.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~60 Dk</span>
                         <span>Doğal Görünüm</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1770,70 +1698,50 @@ footer a {
             <div class="service-card" data-category="tirnak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="kalici-oje.webp"
+                    <img src="kalici-oje.webp"
                         alt="Kalıcı oje"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Kalıcı Oje</h3>
-
                         <p>
                             Haftalarca bozulmayan canlı renkler
                             ve parlak görünüm.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~40 Dk</span>
                         <span>3-4 Hafta Kalıcı</span>
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- MASAJ -->
-
             <div class="service-card" data-category="masaj">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="g-selulit.webp"
+                    <img src="g-selulit.webp"
                         alt="G5 selülit masajı"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>G5 Selülit Masajı</h3>
-
                         <p>
                             Bölgesel incelmeyi destekleyen,
                             selülit görünümünü azaltan uygulama.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~30 Dk</span>
                         <span>Sıkılaşma</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1842,33 +1750,24 @@ footer a {
             <div class="service-card" data-category="masaj">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="lenfmasaji.webp"
+                    <img src="lenfmasaji.webp"
                         alt="Lenf drenaj masajı"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Lenf Drenaj Masajı</h3>
-
                         <p>
                             Vücuttaki ödem ve toksinlerin atılmasına
                             yardımcı olan basınç terapisi.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~45 Dk</span>
                         <span>Ödem Atıcı</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1877,70 +1776,50 @@ footer a {
             <div class="service-card" data-category="masaj">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="masaj.webp"
+                    <img src="masaj.webp"
                         alt="Profesyonel masaj"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Masaj</h3>
-
                         <p>
                             Günün stresinden uzaklaşmanızı sağlayan
                             dinlendirici ve gevşetici seanslar.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~50 Dk</span>
                         <span>Tam Dinlenme</span>
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- EPİLASYON -->
-
             <div class="service-card" data-category="epilasyon">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="lazerepilasyon.webp"
+                    <img src="lazerepilasyon.webp"
                         alt="Lazer epilasyon"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Lazer Epilasyon</h3>
-
                         <p>
                             Modern cihazlarla güvenli, etkili ve
                             pürüzsüz sonuç veren epilasyon hizmeti.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Seans Bazlı</span>
                         <span>Modern Cihaz</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1949,33 +1828,24 @@ footer a {
             <div class="service-card" data-category="epilasyon">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="agda.webp"
+                    <img src="agda.webp"
                         alt="Ağda hizmeti"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Ağda</h3>
-
                         <p>
                             Hassas ciltler düşünülerek uygulanan
                             geleneksel pürüzsüzleştirici bakım.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Bölgesel</span>
                         <span>Hassas Uyumlu</span>
                     </div>
-
                 </div>
 
             </div>
@@ -1984,107 +1854,76 @@ footer a {
             <div class="service-card" data-category="epilasyon">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="brezilya.webp"
+                    <img src="brezilya.webp"
                         alt="Brezilya ağdası"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Brezilya Ağdası</h3>
-
                         <p>
                             Özel içerikli ürünlerle konforlu ve
                             uzun süreli pürüzsüzlük.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Uzun Süreli</span>
                         <span>Özel İçerik</span>
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- MAKYAJ -->
-
             <div class="service-card" data-category="makyaj">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="makyaj-hizmetleri.webp"
+                    <img src="makyaj-hizmetleri.webp"
                         alt="Profesyonel makyaj hizmeti"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Makyaj Hizmetleri</h3>
-
                         <p>
                             Özel davetleriniz için yüz hatlarınıza
                             en uygun profesyonel uygulamalar.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~60 Dk</span>
                         <span>Porselen / Günlük</span>
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- SAÇ -->
-
             <div class="service-card" data-category="kuafor">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="kuafor.webp"
+                    <img src="kuafor.webp"
                         alt="Akçay kadın kuaförü"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Kuaförlük</h3>
-
                         <p>
                             Kesim, boya, balyaj, ombre ve bakım
                             işlemleriyle tarzınızı yenileyin.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Uzman Kadro</span>
                         <span>Kişiye Özel</span>
                     </div>
-
                 </div>
 
             </div>
@@ -2093,70 +1932,50 @@ footer a {
             <div class="service-card" data-category="kuafor">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="saç-kaynaklama.webp"
+                    <img src="saç-kaynaklama.webp"
                         alt="Saç kaynaklama"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Saç Kaynaklama</h3>
-
                         <p>
                             Doğal saçlarınızla kusursuz uyum sağlayan
                             kaliteli kaynak uygulamaları.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Gerçek Saç</span>
                         <span>Profesyonel</span>
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- EL AYAK -->
-
             <div class="service-card" data-category="el-ayak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="manikur.webp"
+                    <img src="manikur.webp"
                         alt="Manikür"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Manikür</h3>
-
                         <p>
                             Ellerinizin ve tırnaklarınızın sağlıklı
                             ve bakımlı görünmesini sağlar.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~30 Dk</span>
                         <span>Steril Ekipman</span>
                     </div>
-
                 </div>
 
             </div>
@@ -2165,33 +1984,24 @@ footer a {
             <div class="service-card" data-category="el-ayak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="pedikur.webp"
+                    <img src="pedikur.webp"
                         alt="Pedikür"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Pedikür</h3>
-
                         <p>
                             Ayak sağlığınızı koruyan ve yorgunluğu
                             alan tazelendirici hizmet.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~40 Dk</span>
                         <span>Dinlendirici</span>
                     </div>
-
                 </div>
 
             </div>
@@ -2200,70 +2010,50 @@ footer a {
             <div class="service-card" data-category="el-ayak">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="ayak.webp"
+                    <img src="ayak.webp"
                         alt="El ve ayak bakımı"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>El Ayak Bakımı</h3>
-
                         <p>
                             Derinlemesine nemlendirme, peeling
                             ve yenileyici kürler.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Süre: ~60 Dk</span>
                         <span>Spa Terapisi</span>
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- KAŞ YÜZ -->
-
             <div class="service-card" data-category="kas-yuz">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="kas-bakimi.webp"
+                    <img src="kas-bakimi.webp"
                         alt="Kaş güzelleştirme"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>Kaş Güzelleştirme</h3>
-
                         <p>
                             Yüz tipinize en uygun formu veren
                             profesyonel kaş şekillendirme.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Altın Oran</span>
                         <span>Uzman Tasarım</span>
                     </div>
-
                 </div>
 
             </div>
@@ -2272,37 +2062,27 @@ footer a {
             <div class="service-card" data-category="kas-yuz">
 
                 <div class="service-img-wrap">
-
-                    <img
-                        src="iple-kas-alimi.webp"
+                    <img src="iple-kas-alimi.webp"
                         alt="İple kaş alımı"
-                        loading="lazy"
-                    >
-
+                        loading="lazy">
                 </div>
 
                 <div class="service-content">
-
                     <div>
-
                         <h3>İple Kaş Alımı</h3>
-
                         <p>
                             Hassas ve kusursuz çizgi hatları yaratan
                             temiz iple kaş alım tekniği.
                         </p>
-
                     </div>
 
                     <div class="service-footer-detail">
                         <span>Net Çizgi</span>
                         <span>Hassas Dostu</span>
                     </div>
-
                 </div>
 
             </div>
-
 
         </div>
 
@@ -2311,14 +2091,7 @@ footer a {
 </section>
 
 
-<!-- ==================================================
-     HAKKIMIZDA
-================================================== -->
-
-<section
-    class="about"
-    id="hakkimizda"
->
+<section class="about" id="hakkimizda">
 
     <div class="container">
 
@@ -2378,14 +2151,7 @@ footer a {
 </section>
 
 
-<!-- ==================================================
-     YORUMLAR
-================================================== -->
-
-<section
-    class="testimonials"
-    id="yorumlar"
->
+<section class="testimonials" id="yorumlar">
 
     <div class="container">
 
@@ -2411,20 +2177,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Akçay'da gittiğim en profesyonel güzellik
                         salonu. Protez tırnaklarım harika oldu."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         S***l Y****z
                     </div>
@@ -2432,7 +2193,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2441,20 +2201,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Lazer epilasyon için tercih ediyorum ve
                         sonuçlardan inanılmaz memnunum."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         D***z D***r
                     </div>
@@ -2462,7 +2217,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2471,20 +2225,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Saç kesimi ve boyası için gittim,
                         tam istediğim tonu tutturdular."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         A**e K**a
                     </div>
@@ -2492,7 +2241,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2501,20 +2249,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Cilt bakımı ve masaj seansları beni
                         resmen yeniledi."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         Z****p Ç***k
                     </div>
@@ -2522,7 +2265,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2531,21 +2273,16 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Güler yüzlü karşılamaları, profesyonel
                         yaklaşımları ve kaliteli ürün kullanmaları
                         nedeniyle gönül rahatlığıyla tercih edebilirsiniz."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         M***e A****n
                     </div>
@@ -2553,31 +2290,23 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
 
 
-            <!-- TEKRARLAR -->
-
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Akçay'da gittiğim en profesyonel güzellik
                         salonu. Protez tırnaklarım harika oldu."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         S***l Y****z
                     </div>
@@ -2585,7 +2314,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2594,20 +2322,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Lazer epilasyon için tercih ediyorum ve
                         sonuçlardan inanılmaz memnunum."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         D***z D***r
                     </div>
@@ -2615,7 +2338,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2624,20 +2346,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Saç kesimi ve boyası için gittim,
                         tam istediğim tonu tutturdular."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         A**e K**a
                     </div>
@@ -2645,7 +2362,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2654,20 +2370,15 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Cilt bakımı ve masaj seansları beni
                         resmen yeniledi."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         Z****p Ç***k
                     </div>
@@ -2675,7 +2386,6 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
@@ -2684,21 +2394,16 @@ footer a {
             <div class="testimonial-card">
 
                 <div>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
                         "Güler yüzlü karşılamaları, profesyonel
                         yaklaşımları ve kaliteli ürün kullanmaları
                         nedeniyle gönül rahatlığıyla tercih edebilirsiniz."
                     </p>
-
                 </div>
 
                 <div>
-
                     <div class="testimonial-author">
                         M***e A****n
                     </div>
@@ -2706,11 +2411,9 @@ footer a {
                     <div class="testimonial-source">
                         Google Yorumu
                     </div>
-
                 </div>
 
             </div>
-
 
         </div>
 
@@ -2719,14 +2422,7 @@ footer a {
 </section>
 
 
-<!-- ==================================================
-     İLETİŞİM
-================================================== -->
-
-<section
-    class="contact"
-    id="iletisim"
->
+<section class="contact" id="iletisim">
 
     <div class="container">
 
@@ -2744,11 +2440,9 @@ footer a {
 
         <div class="contact-grid">
 
-
             <div class="contact-info">
 
                 <h3>Nezi Beauty Center</h3>
-
 
                 <div class="info-item">
 
@@ -2804,17 +2498,12 @@ footer a {
 
             </div>
 
-
         </div>
 
     </div>
 
 </section>
 
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
 
 <footer>
 
@@ -2829,15 +2518,7 @@ footer a {
 </footer>
 
 
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
-
 <script>
-
-/* ==================================================
-   NAVBAR SCROLL
-================================================== */
 
 window.addEventListener('scroll', function () {
 
@@ -2845,21 +2526,13 @@ window.addEventListener('scroll', function () {
         document.getElementById('navbar');
 
     if (window.scrollY > 50) {
-
         nav.classList.add('scrolled');
-
     } else {
-
         nav.classList.remove('scrolled');
-
     }
 
 });
 
-
-/* ==================================================
-   MOBİL MENÜ
-================================================== */
 
 const menuToggle =
     document.getElementById('menuToggle');
@@ -2921,10 +2594,6 @@ document
     });
 
 
-/* ==================================================
-   HİZMET FİLTRELEME
-================================================== */
-
 function filterServices(
     category,
     btnElement
@@ -2942,11 +2611,8 @@ function filterServices(
 
 
     buttons.forEach(function (btn) {
-
         btn.classList.remove('active');
-
     });
-
 
     btnElement.classList.add('active');
 
@@ -2988,7 +2654,9 @@ function filterServices(
 
     if (visibleCount === 1) {
 
-        grid.classList.add('single-service');
+        grid.classList.add(
+            'single-service'
+        );
 
     }
 
@@ -2998,17 +2666,14 @@ function filterServices(
         visibleCount === 2
     ) {
 
-        grid.classList.add('double-service');
+        grid.classList.add(
+            'double-service'
+        );
 
     }
 
 }
 
-
-/* ==================================================
-   SAYFA AÇILDIĞINDA
-   İLK KATEGORİ
-================================================== */
 
 window.addEventListener(
     'DOMContentLoaded',
@@ -3028,10 +2693,6 @@ window.addEventListener(
     }
 );
 
-
-/* ==================================================
-   GSAP ANİMASYONLARI
-================================================== */
 
 gsap.registerPlugin(
     ScrollTrigger
@@ -3120,7 +2781,6 @@ ScrollTrigger.create({
     }
 
 });
-
 
 </script>
 
