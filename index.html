@@ -627,10 +627,17 @@ section {
 
 
 /* ==================================================
-   BİLGİSAYARDA MAKYAJI KÜÇÜLT VE ORTALA
+   BİLGİSAYARDA TÜM HİZMET KARTLARINI AYNI BOYUTTA TUT
 ================================================== */
 
 @media (min-width: 701px) {
+
+    .services-grid {
+        grid-template-columns:
+            repeat(auto-fit, 250px);
+
+        justify-content: center;
+    }
 
     .services-grid.single-service {
         grid-template-columns: 250px;
@@ -642,45 +649,6 @@ section {
         justify-self: center;
     }
 
-
-    /* ==================================================
-       KUAFÖRLÜK VE SAÇ KAYNAKLAMA
-       DİĞER KÜÇÜK KARTLAR GİBİ
-    ================================================== */
-
-    .service-card[data-category="kuafor"] {
-        width: 100%;
-        justify-self: stretch;
-    }
-
-
-    .service-card[data-category="kuafor"]
-    .service-img-wrap {
-
-        width: 90%;
-        aspect-ratio: 1 / 1;
-
-        margin: 10px auto 0;
-
-        border-radius: 10px;
-    }
-
-    .service-card[data-category="kuafor"]
-    .service-img-wrap img {
-
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-
-        transform: none;
-    }
-
-    .service-card[data-category="kuafor"]:hover
-    .service-img-wrap img {
-
-        transform: scale(1.02);
-    }
 }
 
 
@@ -771,6 +739,7 @@ section {
 
     animation: scrollTrack 35s linear infinite;
 }
+
 @keyframes scrollTrack {
 
     0% {
@@ -1038,8 +1007,7 @@ footer a {
 
     /* ==================================================
        MOBİL ANA SAYFA
-       ÖNEMLİ:
-       YAZI SOLDA - RESİM SAĞDA
+       YAZI SOLDA - RESİM TÜM ANA SAYFADA
     ================================================== */
 
     .hero {
@@ -1049,9 +1017,23 @@ footer a {
 
         display: flex;
 
-        padding: 90px 12px 35px;
+        padding: 90px 18px 35px;
 
-        background-image: none;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(249,244,240,.94) 0%,
+                rgba(249,244,240,.82) 38%,
+                rgba(249,244,240,.38) 65%,
+                rgba(249,244,240,.08) 100%
+            ),
+            url("anasayfa.webp");
+
+        background-size: cover;
+
+        background-position: center right;
+
+        background-repeat: no-repeat;
 
         background-color: var(--cream);
     }
@@ -1066,16 +1048,20 @@ footer a {
 
         align-items: center;
 
-        gap: 12px;
+        gap: 0;
     }
 
     .hero-content {
 
-        width: 50%;
+        width: 55%;
 
-        flex: 1 1 50%;
+        flex: 0 0 55%;
 
         text-align: left;
+
+        position: relative;
+
+        z-index: 3;
     }
 
     .hero h1 {
@@ -1120,40 +1106,11 @@ footer a {
 
 
     /* ==================================================
-       MOBİL HERO GÖRSELİ
+       MOBİLDE AYRI RESİM KARTINI KALDIR
     ================================================== */
 
     .hero-mobile-image {
-
-        display: block;
-
-        width: 50%;
-
-        flex: 1 1 50%;
-
-        height: 520px;
-
-        aspect-ratio: auto;
-
-        margin: 0;
-
-        overflow: hidden;
-
-        border-radius: 15px;
-
-        box-shadow:
-            0 12px 30px rgba(0,0,0,.10);
-    }
-
-    .hero-mobile-image img {
-
-        width: 100%;
-
-        height: 100%;
-
-        object-fit: cover;
-
-        object-position: 82% center;
+        display: none;
     }
 
 
@@ -3021,14 +2978,6 @@ function filterServices(
             'servicesGrid'
         );
 
-
-    /*
-       SADECE TEK HİZMET VARSA
-       KARTI ORTALAYIP KÜÇÜLTÜYORUZ.
-
-       Böylece MAKYAJ kategorisinde
-       tek kart küçük ve ortada görünür.
-    */
 
     grid.classList.toggle(
         'single-service',
