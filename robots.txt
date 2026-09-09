@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nezibeauty.com/sitemap.xml
+Sitemap: https://www.nezibeautycenter.com/sitemap.xml
